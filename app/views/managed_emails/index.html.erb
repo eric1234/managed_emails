@@ -1,0 +1,7 @@
+<%= render :partial => 'header' %>
+
+<ul id="managed-emails">
+  <% for email in @managed_emails %>
+    <li><%= link_to email, edit_managed_email_path(email) %></li>
+  <% end %>
+</ul>

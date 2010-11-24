@@ -1,0 +1,33 @@
+Allows an end user to manage the e-mail template instead of putting all
+that copy in the code. This is for simple e-mails with just a few
+variables and no real logic.
+
+Each e-mail type is managed by an ActiveRecord object. The basic API is:
+
+  ManagedEmail.find_by_name('Welcome').deliver :password => @password
+
+This will find the managed e-mail named "Welcome", populate the
+template and with a variable named "password" (with the value
+specified by @password) and send it. The "To", "From", "Subject" and
+"Body" of the message will all be determined by the ManagedEmail object.
+
+If you need to send to a custom user instead of a hard-coded user
+simply update that property inline without saving:
+
+  email = ManagedEmail.find_by_name 'welcome'
+  email.to = 'joe@example.com'
+  email.from => 'jack@example.com'
+  email.deliver :password => @password
+
+We may add hooks later to support some logic but don't want to go too
+crazy. If you need a some custom work just implement a normal ActionMailer
+object and forget this managed stuff.
+
+Note that this system manages a pre-defined list of e-mails so their
+is no API for creating a new ManagedEmail. Ideally your seed data or
+migrations will specify what ManagedEmail exists.
+
+Also the "to", "from" and "subject" editing can be disabled by setting
+the "to_readonly", "from_readonly" and "subject_readonly" attributes
+to true. This is useful for cases where you don't want to provide too
+much control OR you are going to override the value inline anyway.
