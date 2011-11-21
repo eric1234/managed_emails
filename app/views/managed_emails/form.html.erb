@@ -1,26 +1,26 @@
-<% form_for @managed_email do |f| %>
+<%= form_for @managed_email do |f| %>
   <table class="form" style="width: 100%">
     <% unless @managed_email.to_readonly %>
       <tr>
         <th><%= f.label :to %></th>
-        <td><%= f.text_field :to, :style => 'width: 100%' %></td>
+        <td><%= f.text_field :to %></td>
       </tr>
     <% end %>
     <% unless @managed_email.from_readonly %>
       <tr>
         <th><%= f.label :from %></th>
-        <td><%= f.text_field :from, :style => 'width: 100%' %></td>
+        <td><%= f.text_field :from %></td>
       </tr>
     <% end %>
     <% unless @managed_email.subject_readonly %>
       <tr>
         <th><%= f.label :subject %></th>
-        <td><%= f.text_field :subject, :style => 'width: 100%' %></td>
+        <td><%= f.text_field :subject %></td>
       </tr>
     <% end %>
     <tr>
       <th><%= f.label :body %></th>
-      <td><%= f.text_area :body, :style => "width: 44em; height: 30em; font-family: 'Courier New', monospace" %></td>
+      <td><%= f.text_area :body %></td>
     </tr>
     <tr>
       <td></td>

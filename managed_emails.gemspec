@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'managed_emails'
-  s.version = '0.0.2'
+  s.version = '0.0.3'
   s.homepage = 'http://wiki.github.com/eric1234/managed_emails/'
   s.author = 'Eric Anderson'
   s.email = 'eric@pixelwareinc.com'
