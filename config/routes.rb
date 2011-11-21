@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope ManagedEmails.route_scope do
+  scope ENV['RAILS_RELATIVE_URL_ROOT'] || '/' do
     resources :managed_emails, :only => [:index, :edit, :update]
   end
 end
